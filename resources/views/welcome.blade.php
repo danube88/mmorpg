@@ -40,6 +40,12 @@
                 top: 18px;
             }
 
+            .top-left {
+                position: absolute;
+                right: 200px;
+                top: 0px;
+            }
+
             .content {
                 text-align: center;
             }
@@ -61,10 +67,38 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .select {
+                position: absolute;
+                height: 23px;
+                padding: 5px 0 0 8px;
+                color: #394022;
+                font: 13px Georgia, 'Times New Roman', Times serif;
+                overflow: hidden;
+            }
+
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+            <div class="top-left links">
+                <div class="lang">
+                    <select class="select" id="lang" name="language">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            @if ($localeCode == LaravelLocalization::getCurrentLocale())
+                                <option selected value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </option>
+                            @else
+                                <option value="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -80,6 +114,7 @@
             @endif
 
             <div class="content">
+
                 <div class="title m-b-md">
                     Laravel
                 </div>
@@ -97,4 +132,10 @@
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+        var lang = document.getElementById('lang');
+        lang.onchange = function() {
+            window.location = lang.options[lang.options.selectedIndex].value;
+        };
+    </script>
 </html>
