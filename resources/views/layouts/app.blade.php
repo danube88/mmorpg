@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('head')
 </head>
 <body>
     <div id="app">
@@ -68,6 +69,21 @@
                             </li>
                         @endguest
                     </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ LaravelLocalization::getCurrentLocaleName() }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <a class="dropdown-item" rel = "alternate" hreflang = "{{ $localeCode }}" href ="{{ LaravelLocalization::getLocalizedURL( $localeCode, null, [], true)}}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -76,5 +92,6 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 </html>
