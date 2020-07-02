@@ -2,15 +2,6 @@
 
 @section('content')
 <div class="container">
-    <ul class="list-group">
-        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-        <li class="list-group-item">
-            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                {{ $properties['native'] }}
-            </a>
-        </li>
-        @endforeach
-    </ul>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
