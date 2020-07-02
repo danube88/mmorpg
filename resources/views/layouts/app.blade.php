@@ -18,6 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .flag-icon-uk {
+            background-image:url(../flags/4x3/uk.svg)
+        }
+
+        .flag-icon-en {
+            background-image:url(../flags/4x3/en.svg)
+        }
+    </style>
     @yield('head')
 </head>
 <body>
@@ -34,7 +43,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @yield('header')
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -72,14 +81,17 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ LaravelLocalization::getCurrentLocaleName() }} <span class="caret"></span>
+                                <span class="flag-icon flag-icon-{{ LaravelLocalization::getCurrentLocale() }}"></span><div style="text-transform: uppercase; display: inline-block;">{{ LaravelLocalization::getCurrentLocale() }}</div><span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <div class="nav-link" style="display:flex;">
+                                    <span class="flag-icon flag-icon-{{ $localeCode }}" style="width:35px;"></span>
                                     <a class="dropdown-item" rel = "alternate" hreflang = "{{ $localeCode }}" href ="{{ LaravelLocalization::getLocalizedURL( $localeCode, null, [], true)}}">
                                         {{ $properties['native'] }}
                                     </a>
+                                </div>
                                 @endforeach
                             </div>
                         </li>
@@ -91,6 +103,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            @yield('footer')
+        </footer>
     </div>
     @stack('scripts')
 </body>

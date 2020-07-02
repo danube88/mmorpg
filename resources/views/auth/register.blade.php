@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+    <link href="{{ asset('css/flag-icon.min.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
