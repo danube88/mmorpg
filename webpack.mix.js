@@ -17,5 +17,5 @@ mix.js('resources/js/app.js', 'public/js')
 mix.copy('node_modules/flag-icon-css/css/flag-icon.min.css', 'public/css/flag-icon.min.css');
 
 mix.copy('node_modules/flag-icon-css/flags/4x3/ru.svg', 'public/flags/4x3/ru.svg');
-mix.copy('node_modules/flag-icon-css/flags/4x3/ua.svg', 'public/flags/4x3/uk.svg');
+mix.copy('node_modules/flag-icon-css/flags/4x3/ua.svg', 'public/flags/4x3/ua.svg');
 mix.copy('node_modules/flag-icon-css/flags/4x3/us.svg', 'public/flags/4x3/en.svg');
