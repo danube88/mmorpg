@@ -18,15 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        .flag-icon-uk {
-            background-image:url(../flags/4x3/uk.svg)
-        }
-
-        .flag-icon-en {
-            background-image:url(../flags/4x3/en.svg)
-        }
-    </style>
+    <link href="{{ asset('css/flag-style.css') }}" rel="stylesheet">
     @yield('head')
 </head>
 <body>
