@@ -26,4 +26,10 @@ Route::group([
         Auth::routes();
 
         Route::get('/home', 'HomeController@index')->name('home');
+
+        Route::group(['middleware' => 'role:project-manager'], function() {
+            Route::get('/dashboard', function() {
+                return 'Добро пожаловать, Менеджер проекта';
+            });
+        });
     });
