@@ -8,5 +8,10 @@
     "Forgot Your Password?": "Забыли пароль?",
     "Name": "Имя",
     "Confirm Password": "Подтвердите Пароль",
-    "Language": "Язык"
+    "Language": "Язык",
+    "Users list": "Список пользователей",
+    "Admin Panel": "Панель администратора",
+    "Not found": "Не найдено",
+    "Forbidden": "Запрещено",
+    "Home": "Главная"
 }
