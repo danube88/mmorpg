@@ -233,8 +233,8 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'search' => false,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',
@@ -242,11 +242,24 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'home',
+            'url'         => 'admin/panel',
+            'icon'        => 'fas fa-fw fa-home',
+        ],
+        [
+            'text'        => 'users_list',
+            'url'         => 'admin/users',
+            'icon'        => 'fas fa-fw fa-users',
+        ],
+        [
+            'text'        => 'roles_list',
+            'url'         => 'admin/roles',
+            'icon'        => 'fas fa-fw fa-th-list',
+        ],
+        [
+            'text'        => 'permissions_list',
+            'url'         => 'admin/permissions',
+            'icon'        => 'fas fa-fw fa-clipboard-list',
         ],
         ['header' => 'account_settings'],
         [
